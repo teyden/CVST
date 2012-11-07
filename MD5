@@ -1,0 +1,16 @@
+51aaf76cceee9dd9d80b3bab077e2339 *DESCRIPTION
+8b54e5a89fbda3af5e077053d40bec76 *NAMESPACE
+fddc12b6fa14f41a8c37b212dc8eecb5 *R/CV.R
+b6d4727c036db19ff7ed4c18ad85aad8 *R/methods.R
+ae2df85d6f7fe8ad78b97a84d31d00bb *R/util.R
+925ee5082751678a795ec9ea96d2ec3e *man/CV.Rd
+0321271678a4d58e78afec1b3232c29f *man/CVST-package.Rd
+9390b39cfb0c6b911afd2cbde41ad7ef *man/cochranq.test.Rd
+ad255cec501660d4cd20ed65fdd0134f *man/constructCVSTModel.Rd
+598da3d50b0cae8416a80aa427ca80cf *man/constructData.Rd
+4baa9ac89eddb3c0a8654421312d740c *man/constructLearner.Rd
+fa63d1f9bc99b4737b38044e926b9160 *man/constructParams.Rd
+13f35eb950e28902d9f785f47a817c50 *man/constructSequentialTest.Rd
+0624f8cfcdad80a6759cb148fb3323ae *man/fastCV.Rd
+59c332d15d6ea6eedc014ad8548fe429 *man/noisyDonoho.Rd
+81948704e5fc7b353176f14fd430bafe *man/noisySine.Rd
