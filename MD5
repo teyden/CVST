@@ -1,12 +1,12 @@
-c92ac7b7dcf63530075a5f6dfb1ae92d *DESCRIPTION
+635d31fd315c55401a3ce30a4f096481 *DESCRIPTION
 8b54e5a89fbda3af5e077053d40bec76 *NAMESPACE
 209666bfdd1d76a79ee11af8fa919a61 *R/CV.R
-e165dc49bb2c63050ba068f98bb89f20 *R/methods.R
+807866a5ca52a90f7ce267e28e41704b *R/methods.R
 cf33cdc93c9b2aa2929369a658eab977 *R/util.R
-04d21c57d4e63fe8a9f4526576d74b2c *README.md
+d397398aac7e3352aa7e1ed6234dc491 *README.md
 889feb1c2dba681c0b85199ec33693b9 *man/CV.Rd
 ebb263537ff83916c7c7ffd97b89e97d *man/CVST-package.Rd
-17da5285e4c10f0a0c7232078c8c7466 *man/cochranq.test.Rd
+22f0b3ced43046e9c6c832213c612a99 *man/cochranq.test.Rd
 2c840dfb7798526a5726f93bbc8e5d50 *man/constructCVSTModel.Rd
 101d0d1145f69a67cc133b224ac3a5f0 *man/constructData.Rd
 bc6a2af0e2ba849b839fd41a26768399 *man/constructLearner.Rd
