@@ -38,7 +38,11 @@ constructKlogRegLearner = function() {
     }
     y = (data$y != levels(data$y)[1]) + 0
     kpar = params[setdiff(names(params), c("kernel", "lambda", "tol", "maxiter"))]
-    kernel = do.call(params$kernel, kpar)
+    if (params$kernel == "matrix") {
+      kernel = params$kernel
+    } else {
+      kernel = do.call(params$kernel, kpar)
+    }
     model = .klogreg(data$x, kernel, y, getN(data) * params$lambda, params$tol, params$maxiter)
     model$yLevels = levels(data$y)
     return(model)
@@ -88,7 +92,7 @@ constructKRRLearner = function() {
   # labels should be 0/1
   #require(kernlab)
   #require(Matrix)
-  if (kernel == "matrix") {K = Matrix(as.kernelMatrix(kernel.BC.train)@.Data)
+  if (is.character(kernel) && kernel == "matrix") {
     K = Matrix(as.kernelMatrix(data)@.Data)
     message("Using custom preconstructed kernel.")
   } else {
@@ -126,7 +130,15 @@ constructKRRLearner = function() {
 
 .klogreg.predict = function(klogreg, newData) {
   #require(kernlab)
-  K = kernelMult(klogreg$kernel, newData, klogreg$data, klogreg$alpha)
+  if (is.character(klogreg$kernel) && kernel == "matrix") {
+    # K = Matrix(as.kernelMatrix(data)@.Data)
+    # TODO - need to step through and see how it was constructed
+    K = kernelMult(klogreg$kernel, newData, klogreg$data, klogreg$alpha)
+    message("Using custom preconstructed kernel.")
+  } else {
+    # K = Matrix(kernelMatrix(kernel, data)@.Data)
+    K = kernelMult(klogreg$kernel, newData, klogreg$data, klogreg$alpha)
+  }
   pi = 1 / (1 + exp(-as.vector(K)))
   return((pi >= .5) + 0)
 }
