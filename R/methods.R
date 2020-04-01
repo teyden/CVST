@@ -88,7 +88,7 @@ constructKRRLearner = function() {
   # labels should be 0/1
   #require(kernlab)
   #require(Matrix)
-  if (kernel == "matrix") {
+  if (kernel == "matrix") {K = Matrix(as.kernelMatrix(kernel.BC.train)@.Data)
     K = Matrix(as.kernelMatrix(data)@.Data)
     message("Using custom preconstructed kernel.")
   } else {
