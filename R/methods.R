@@ -88,7 +88,12 @@ constructKRRLearner = function() {
   # labels should be 0/1
   #require(kernlab)
   #require(Matrix)
-  K = Matrix(kernelMatrix(kernel, data)@.Data)
+  if (kernel == "matrix") {
+    K = Matrix(as.kernelMatrix(data)@.Data)
+    message("Using custom preconstructed kernel.")
+  } else {
+    K = Matrix(kernelMatrix(kernel, data)@.Data)
+  }
   N = nrow(K)
   alpha = rep(1/N, N)
   iter = 1
