@@ -63,12 +63,15 @@ constructKRRLearner = function() {
     stopifnot(isRegression(data))
     kpar = params[setdiff(names(params), c("kernel", "lambda"))]
     kernel = do.call(params$kernel, kpar)
-    return(.krr(data$x, kernel, data$y, getN(data) * params$lambda))
+    output = .krr(data$x, kernel, data$y, getN(data) * params$lambda)
+    return(output)
   }
   
   predict.krr = function(model, newData) {
     stopifnot(isRegression(newData))
-    return(as.matrix(.krr.predict(newData$x, model)))
+    pred = .krr.predict(newData$x, model)
+    output = as.matrix(pred)
+    return(output)
   }
   return(constructLearner(learn.krr, predict.krr))
 }
@@ -130,7 +133,7 @@ constructKRRLearner = function() {
 
 .klogreg.predict = function(klogreg, newData) {
   #require(kernlab)
-  if (is.character(klogreg$kernel) && kernel == "matrix") {
+  if (is.character(klogreg$kernel) && klogreg$kernel == "matrix") {
     # K = Matrix(as.kernelMatrix(data)@.Data)
     # TODO - need to step through and see how it was constructed
     K = kernelMult(klogreg$kernel, newData, klogreg$data, klogreg$alpha)
