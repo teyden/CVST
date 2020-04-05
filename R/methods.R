@@ -134,12 +134,10 @@ constructKRRLearner = function() {
 .klogreg.predict = function(klogreg, newData) {
   #require(kernlab)
   if (is.character(klogreg$kernel) && klogreg$kernel == "matrix") {
-    # K = Matrix(as.kernelMatrix(data)@.Data)
-    # TODO - need to step through and see how it was constructed
-    K = kernelMult(klogreg$kernel, newData, klogreg$data, klogreg$alpha)
     message("Using custom preconstructed kernel.")
+    # k = kernelMatrix(krr$kernel, newData, krr$data) THIS IS FROM KRR
+    return(newData %*% krr$alpha)
   } else {
-    # K = Matrix(kernelMatrix(kernel, data)@.Data)
     K = kernelMult(klogreg$kernel, newData, klogreg$data, klogreg$alpha)
   }
   pi = 1 / (1 + exp(-as.vector(K)))
